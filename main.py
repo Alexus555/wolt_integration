@@ -37,11 +37,11 @@ def process_file(file_name: str) -> None:
     venue_id = file_params[1]
 
     wolt_api = WoltApiHook(config.API_URL, venue_id, config.TOKEN)
-    if wolt_api.patch_data(endpoint, payload):
+    if wolt_api.patch_data(config.ENDPOINTS[endpoint], payload):
         logging.info('File was processed successfully')
         os.remove(file_name)
     else:
-        logging.error('An error has been occurred during processing')
+        logging.warning('An error has been occurred during processing')
 
 
 if __name__ == '__main__':

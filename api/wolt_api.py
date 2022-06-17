@@ -28,6 +28,6 @@ class WoltApiHook:
         result_is_success = r.status_code == success_code
 
         if not result_is_success:
-            logging.warning(f'Status code: {r.status_code} - {r.text}')
+            logging.error(f"Status code: {r.status_code} - {r.reason}. Response text: {r.text}")
 
         return result_is_success
