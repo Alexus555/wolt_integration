@@ -10,7 +10,7 @@ class WoltApiHook:
         self._venue_id = venue_id
         self._token = token
 
-    def __patch_data(self, endpoint, payload) -> bool:
+    def patch_data(self, endpoint, payload) -> bool:
         url = f'{self._url}/venues/{self._venue_id}/{endpoint}'
 
         logging.info(f'Processing url: {url}')
@@ -31,9 +31,3 @@ class WoltApiHook:
             logging.warning(f'Status code: {r.status_code} - {r.text}')
 
         return result_is_success
-
-    def patch_items(self, payload) -> bool:
-        return self.__patch_data('items', payload)
-
-    def patch_inventory(self, payload) -> bool:
-        return self.__patch_data('items/inventory', payload)
