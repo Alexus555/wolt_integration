@@ -128,3 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /data/
+/config.py
+/.idea/wolt_integration.iml
